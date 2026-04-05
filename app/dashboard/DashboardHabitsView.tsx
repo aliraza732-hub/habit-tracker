@@ -23,7 +23,7 @@ export default async function DashboardHabitsView() {
     },
   });
 
-  const habitsWithToday = habits.map((habit) => ({
+  const habitsWithToday = habits.map((habit: (typeof habits)[0]) => ({
     ...habit,
     doneToday: habit.completions.some(
       (c) => new Date(c.date) >= today && new Date(c.date) < tomorrow,
@@ -97,9 +97,7 @@ export default async function DashboardHabitsView() {
         {habits.length === 0 ? (
           <div className="animate-scale-in rounded-2xl border border-dashed border-violet-200 bg-white/60 py-16 text-center text-gray-400 backdrop-blur-sm">
             <p className="text-lg font-medium text-gray-600">No habits yet!</p>
-            <p className="mt-2 text-sm">
-              Add your first habit to get started
-            </p>
+            <p className="mt-2 text-sm">Add your first habit to get started</p>
             <Link
               href="/dashboard/add"
               className="mt-6 inline-flex cursor-pointer rounded-xl bg-violet-600 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-violet-700 hover:shadow-md"
