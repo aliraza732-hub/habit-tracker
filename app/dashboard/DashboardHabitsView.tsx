@@ -23,7 +23,7 @@ export default async function DashboardHabitsView() {
     },
   });
 
-  const habitsWithToday = habits.map((habit) => ({
+  const habitsWithToday = habits.map((habit: any) => ({
     ...habit,
     doneToday: habit.completions.some(
       (c) => new Date(c.date) >= today && new Date(c.date) < tomorrow,
